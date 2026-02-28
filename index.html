@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harshit Jain — Graphic Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --fg: #f0ede8;
+      --accent: #c8b99a;
+      --muted: #3a3a3a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--muted);
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: 1px solid var(--muted);
+      transition: border-color 0.25s, color 0.25s;
+    }
+
+    .contact-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .contact-btn svg { flex-shrink: 0; }
+
+    /* ── HERO TAG ── */
+    .hero-tag {
+      padding: 140px 40px 60px;
+      max-width: 700px;
+    }
+
+    .hero-tag h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1;
+      letter-spacing: 0.03em;
+      color: var(--fg);
+    }
+
+    .hero-tag h1 span { color: var(--accent); }
+
+    .hero-tag p {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      color: #888;
+      text-transform: uppercase;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: var(--muted);
+      margin: 0 40px 48px;
+    }
+
+    /* ── GRID ── */
+    .grid {
+      columns: 3;
+      column-gap: 2px;
+      padding: 0 2px 80px;
+    }
+
+    @media (max-width: 900px) { .grid { columns: 2; } }
+    @media (max-width: 520px) { .grid { columns: 1; } }
+
+    .item {
+      break-inside: avoid;
+      display: block;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 2px;
+      cursor: zoom-in;
+    }
+
+    .item img {
+      width: 100%;
+      display: block;
+      filter: grayscale(8%);
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), filter 0.4s;
+    }
+
+    .item:hover img {
+      transform: scale(1.03);
+      filter: grayscale(0%);
+    }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+
+    #lightbox.active { display: flex; }
+
+    #lightbox img {
+      max-width: 88vw;
+      max-height: 88vh;
+      object-fit: contain;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+      animation: pop 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    #lightbox-close {
+      position: fixed;
+      top: 24px; right: 32px;
+      font-size: 2rem;
+      color: #aaa;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+      z-index: 1000;
+      background: none;
+      border: none;
+    }
+    #lightbox-close:hover { color: var(--fg); }
+
+    @keyframes pop {
+      from { opacity: 0; transform: scale(0.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--muted);
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: #555;
+      letter-spacing: 0.06em;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">Harshit <span>Jain</span></a>
+    <a href="mailto:harshitjain4121@gmail.com" class="contact-btn">
+      <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1h13v10H1V1zm0 0l6.5 5.5L14 1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Get in Touch
+    </a>
+  </header>
+
+  <section class="hero-tag">
+    <h1>Graphic<br><span>Design</span><br>Portfolio</h1>
+    <p>Brand · Print · Digital · Social</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="grid" id="gallery">
+
+    <!-- Add or remove <div class="item"> blocks to match your image files -->
+    <!-- Place your images in an /images/ folder alongside this file -->
+
+    <div class="item"><img src="images/Musician_PsychedelicPoster.jpg" alt="Psychedelic Musician Poster" loading="lazy"/></div>
+    <div class="item"><img src="images/RetroCar_Informative.jpg" alt="London Taxi Informative Poster" loading="lazy"/></div>
+    <div class="item"><img src="images/Vespa_Y2KAdvertisment.jpg" alt="Vespa Y2K Advertisement" loading="lazy"/></div>
+    <div class="item"><img src="images/SneakerSocialMediaPost.jpg" alt="Sneaker Social Media Post" loading="lazy"/></div>
+    <div class="item"><img src="images/TVISHA_X_SCIASTRA_4_WITHOUT_LOGO.png" alt="TVISHA Science Sprint" loading="lazy"/></div>
+    <div class="item"><img src="images/630434540_18046222538708930_8346487880443027666_n.jpg" alt="Built for Stability" loading="lazy"/></div>
+    <div class="item"><img src="images/631757694_18045907262708930_7113244091494630593_n.jpg" alt="Global Talent Global Impact" loading="lazy"/></div>
+    <div class="item"><img src="images/632585454_18046690667708930_612481086484703095_n.jpg" alt="Career Growth" loading="lazy"/></div>
+    <div class="item"><img src="images/1766566963745.jpg" alt="Hiring Full Stack Developer" loading="lazy"/></div>
+    <div class="item"><img src="images/1766612235685.jpg" alt="Hiring Junior Software Developer" loading="lazy"/></div>
+    <div class="item"><img src="images/1770202306209.jpg" alt="Hiring AI Engineer" loading="lazy"/></div>
+    <div class="item"><img src="images/Diwali.png" alt="Happy Diwali Event" loading="lazy"/></div>
+    <div class="item"><img src="images/11.png" alt="Speak Up POSH" loading="lazy"/></div>
+    <div class="item"><img src="images/12.png" alt="Zero Tolerance Misconduct" loading="lazy"/></div>
+    <div class="item"><img src="images/542275102_18028367894708930_7173748090420106970_n.jpg" alt="Employee Spotlight Shivam" loading="lazy"/></div>
+    <div class="item"><img src="images/602177277_18039927473708930_2894324351354668824_n.jpg" alt="Career Ladder" loading="lazy"/></div>
+    <div class="item"><img src="images/618059980_18043146269708930_9201770723916989594_n.jpg" alt="Workforce Solutions" loading="lazy"/></div>
+    <div class="item"><img src="images/Speak Up.png" alt="Speak Up Safety" loading="lazy"/></div>
+    <div class="item"><img src="images/Myth.png" alt="Speak Up Myth vs Fact" loading="lazy"/></div>
+
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <button id="lightbox-close" aria-label="Close">&#215;</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <footer>
+    <span>© 2025 Harshit Jain</span>
+    <a href="mailto:harshitjain4121@gmail.com">harshitjain4121@gmail.com</a>
+  </footer>
+
+  <script>
+    const items = document.querySelectorAll('.item img');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbClose = document.getElementById('lightbox-close');
+
+    items.forEach(img => {
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lightbox.classList.add('active');
+      });
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox || e.target === lbClose) {
+        lightbox.classList.remove('active');
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>
