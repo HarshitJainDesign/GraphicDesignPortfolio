@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Harshit Jain — Graphic Design</title>
+  <title>Harshit Jain — Creative Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <style>
@@ -95,18 +95,43 @@
       text-transform: uppercase;
     }
 
-    /* ── DIVIDER ── */
-    .divider {
-      height: 1px;
-      background: var(--muted);
-      margin: 0 40px 48px;
+    /* ── TABS ── */
+    .section-tabs {
+      display: flex;
+      margin: 0 40px 0;
+      border-bottom: 1px solid var(--muted);
     }
 
-    /* ── GRID ── */
+    .tab-btn {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      padding: 14px 32px;
+      background: none;
+      border: none;
+      color: #555;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab-btn.active {
+      color: var(--fg);
+      border-bottom-color: var(--accent);
+    }
+
+    .tab-btn:hover { color: var(--fg); }
+
+    /* ── SECTIONS ── */
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ── IMAGE GRID ── */
     .grid {
       columns: 3;
       column-gap: 2px;
-      padding: 0 2px 80px;
+      padding: 40px 2px 80px;
     }
 
     @media (max-width: 900px) { .grid { columns: 2; } }
@@ -133,7 +158,189 @@
       filter: grayscale(0%);
     }
 
-    /* ── LIGHTBOX ── */
+    /* ── VIDEO SECTION LAYOUT ── */
+    .video-section-inner {
+      padding: 40px 40px 80px;
+    }
+
+    .video-section-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      color: #555;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    /* Regular videos — landscape */
+    .video-grid-landscape {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 700px) { .video-grid-landscape { grid-template-columns: 1fr; } }
+
+    /* Shorts — portrait */
+    .video-grid-shorts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 1000px) { .video-grid-shorts { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px)  { .video-grid-shorts { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 420px)  { .video-grid-shorts { grid-template-columns: 1fr; } }
+
+    /* ── VIDEO CARD ── */
+    .video-card {
+      background: #161616;
+      border: 1px solid var(--muted);
+      cursor: pointer;
+      transition: border-color 0.25s, transform 0.3s;
+      overflow: hidden;
+    }
+
+    .video-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .video-thumb {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #111;
+    }
+
+    /* Landscape thumbnail */
+    .video-thumb.landscape { aspect-ratio: 16/9; }
+
+    /* Short thumbnail — taller */
+    .video-thumb.portrait { aspect-ratio: 9/16; }
+
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .video-card:hover .video-thumb img { transform: scale(1.05); }
+
+    .play-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.35);
+      transition: background 0.25s;
+    }
+
+    .video-card:hover .play-icon { background: rgba(0,0,0,0.15); }
+
+    .play-icon svg {
+      width: 48px;
+      height: 48px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+      transition: transform 0.25s;
+    }
+
+    .video-card:hover .play-icon svg { transform: scale(1.12); }
+
+    /* Shorts badge */
+    .shorts-badge {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: #ff0000;
+      color: white;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 2px 7px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    .video-info {
+      padding: 12px 14px;
+    }
+
+    .video-info h3 {
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: var(--fg);
+      margin-bottom: 3px;
+    }
+
+    .video-info p {
+      font-size: 0.72rem;
+      color: #666;
+    }
+
+    /* ── VIDEO MODAL ── */
+    #video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #video-modal.active { display: flex; }
+
+    .video-modal-inner {
+      position: relative;
+    }
+
+    /* Landscape modal */
+    .video-modal-inner.landscape {
+      width: 90vw;
+      max-width: 1000px;
+    }
+
+    .video-modal-inner.landscape iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
+
+    /* Shorts modal — narrow & tall */
+    .video-modal-inner.portrait {
+      height: 88vh;
+      max-height: 700px;
+    }
+
+    .video-modal-inner.portrait iframe {
+      height: 100%;
+      aspect-ratio: 9/16;
+    }
+
+    .video-modal-inner iframe {
+      border: none;
+      display: block;
+    }
+
+    #video-modal-close {
+      position: fixed;
+      top: 24px; right: 32px;
+      font-size: 2rem;
+      color: #aaa;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+      z-index: 1000;
+      background: none;
+      border: none;
+    }
+    #video-modal-close:hover { color: var(--fg); }
+
+    /* ── IMAGE LIGHTBOX ── */
     #lightbox {
       display: none;
       position: fixed;
@@ -203,43 +410,195 @@
   </header>
 
   <section class="hero-tag">
-    <h1>Graphic<br><span>Design</span><br>Portfolio</h1>
-    <p>Brand · Print · Digital · Social</p>
+    <h1>Creative<br><span>Portfolio</span></h1>
+    <p>Brand · Print · Digital · Social · Video</p>
   </section>
 
-  <div class="divider"></div>
-
-  <div class="grid" id="gallery">
-
-    <!-- Add or remove <div class="item"> blocks to match your image files -->
-    <!-- Place your images in an /images/ folder alongside this file -->
-
-    <div class="item"><img src="images/Musician_PsychedelicPoster.jpg" alt="Psychedelic Musician Poster" loading="lazy"/></div>
-    <div class="item"><img src="images/RetroCar_Informative.jpg" alt="London Taxi Informative Poster" loading="lazy"/></div>
-    <div class="item"><img src="images/Vespa_Y2KAdvertisment.jpg" alt="Vespa Y2K Advertisement" loading="lazy"/></div>
-    <div class="item"><img src="images/SneakerSocialMediaPost.jpg" alt="Sneaker Social Media Post" loading="lazy"/></div>
-    <div class="item"><img src="images/TVISHA.png" alt="TVISHA Science Sprint" loading="lazy"/></div>
-    <div class="item"><img src="images/630434540_18046222538708930_8346487880443027666_n.jpg" alt="Built for Stability" loading="lazy"/></div>
-    <div class="item"><img src="images/631757694_18045907262708930_7113244091494630593_n.jpg" alt="Global Talent Global Impact" loading="lazy"/></div>
-    <div class="item"><img src="images/632585454_18046690667708930_612481086484703095_n.jpg" alt="Career Growth" loading="lazy"/></div>
-    <div class="item"><img src="images/1766566963745.jpg" alt="Hiring Full Stack Developer" loading="lazy"/></div>
-    <div class="item"><img src="images/1766612235685.jpg" alt="Hiring Junior Software Developer" loading="lazy"/></div>
-    <div class="item"><img src="images/1770202306209.jpg" alt="Hiring AI Engineer" loading="lazy"/></div>
-    <div class="item"><img src="images/Diwali.png" alt="Happy Diwali Event" loading="lazy"/></div>
-    <div class="item"><img src="images/11.png" alt="Speak Up POSH" loading="lazy"/></div>
-    <div class="item"><img src="images/12.png" alt="Zero Tolerance Misconduct" loading="lazy"/></div>
-    <div class="item"><img src="images/542275102_18028367894708930_7173748090420106970_n.jpg" alt="Employee Spotlight Shivam" loading="lazy"/></div>
-    <div class="item"><img src="images/602177277_18039927473708930_2894324351354668824_n.jpg" alt="Career Ladder" loading="lazy"/></div>
-    <div class="item"><img src="images/618059980_18043146269708930_9201770723916989594_n.jpg" alt="Workforce Solutions" loading="lazy"/></div>
-    <div class="item"><img src="images/Speak Up.png" alt="Speak Up Safety" loading="lazy"/></div>
-    <div class="item"><img src="images/Myth.png" alt="Speak Up Myth vs Fact" loading="lazy"/></div>
-
+  <!-- TABS -->
+  <div class="section-tabs">
+    <button class="tab-btn active" onclick="switchTab('design', this)">Graphic Design</button>
+    <button class="tab-btn" onclick="switchTab('video', this)">Video Editing</button>
   </div>
 
-  <!-- Lightbox -->
+  <!-- DESIGN SECTION -->
+  <div class="section active" id="section-design">
+    <div class="grid">
+      <div class="item"><img src="images/Musician_PsychedelicPoster.jpg" alt="Psychedelic Musician Poster" loading="lazy"/></div>
+      <div class="item"><img src="images/RetroCar_Informative.jpg" alt="London Taxi Informative Poster" loading="lazy"/></div>
+      <div class="item"><img src="images/Vespa_Y2KAdvertisment.jpg" alt="Vespa Y2K Advertisement" loading="lazy"/></div>
+      <div class="item"><img src="images/SneakerSocialMediaPost.jpg" alt="Sneaker Social Media Post" loading="lazy"/></div>
+      <div class="item"><img src="images/TVISHA.png" alt="TVISHA Science Sprint" loading="lazy"/></div>
+      <div class="item"><img src="images/630434540_18046222538708930_8346487880443027666_n.jpg" alt="Built for Stability" loading="lazy"/></div>
+      <div class="item"><img src="images/631757694_18045907262708930_7113244091494630593_n.jpg" alt="Global Talent Global Impact" loading="lazy"/></div>
+      <div class="item"><img src="images/632585454_18046690667708930_612481086484703095_n.jpg" alt="Career Growth" loading="lazy"/></div>
+      <div class="item"><img src="images/1766566963745.jpg" alt="Hiring Full Stack Developer" loading="lazy"/></div>
+      <div class="item"><img src="images/1766612235685.jpg" alt="Hiring Junior Software Developer" loading="lazy"/></div>
+      <div class="item"><img src="images/1770202306209.jpg" alt="Hiring AI Engineer" loading="lazy"/></div>
+      <div class="item"><img src="images/Diwali.png" alt="Happy Diwali Event" loading="lazy"/></div>
+      <div class="item"><img src="images/11.png" alt="Speak Up POSH" loading="lazy"/></div>
+      <div class="item"><img src="images/12.png" alt="Zero Tolerance Misconduct" loading="lazy"/></div>
+      <div class="item"><img src="images/542275102_18028367894708930_7173748090420106970_n.jpg" alt="Employee Spotlight Shivam" loading="lazy"/></div>
+      <div class="item"><img src="images/602177277_18039927473708930_2894324351354668824_n.jpg" alt="Career Ladder" loading="lazy"/></div>
+      <div class="item"><img src="images/618059980_18043146269708930_9201770723916989594_n.jpg" alt="Workforce Solutions" loading="lazy"/></div>
+      <div class="item"><img src="images/Speak Up.png" alt="Speak Up Safety" loading="lazy"/></div>
+      <div class="item"><img src="images/Myth.png" alt="Speak Up Myth vs Fact" loading="lazy"/></div>
+    </div>
+  </div>
+
+  <!-- VIDEO SECTION -->
+  <div class="section" id="section-video">
+    <div class="video-section-inner">
+
+      <!-- REGULAR VIDEOS -->
+      <p class="video-section-label">Videos</p>
+      <div class="video-grid-landscape">
+
+        <div class="video-card" onclick="openVideo('MpQf3WP3VCE', 'landscape')">
+          <div class="video-thumb landscape">
+            <img src="https://img.youtube.com/vi/MpQf3WP3VCE/mqdefault.jpg" alt="Video 1"/>
+            <div class="play-icon">
+              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
+            </div>
+          </div>
+          <div class="video-info">
+            <h3>Video 1</h3>
+            <p>Update this title</p>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('4xqyGSE8kAU', 'landscape')">
+          <div class="video-thumb landscape">
+            <img src="https://img.youtube.com/vi/4xqyGSE8kAU/mqdefault.jpg" alt="Video 2"/>
+            <div class="play-icon">
+              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
+            </div>
+          </div>
+          <div class="video-info">
+            <h3>Video 2</h3>
+            <p>Update this title</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SHORTS -->
+      <p class="video-section-label">Shorts</p>
+      <div class="video-grid-shorts">
+
+        <div class="video-card" onclick="openVideo('1q5cgi0Clqs', 'portrait')">
+          <div class="video-thumb portrait">
+            <img src="https://img.youtube.com/vi/1q5cgi0Clqs/mqdefault.jpg" alt="Short 1"/>
+            <div class="play-icon">
+              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
+            </div>
+            <span class="shorts-badge">Short</span>
+          </div>
+          <div class="video-info">
+            <h3>Short 1</h3>
+            <p>Update this title</p>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('2uaDrXzvi4g', 'portrait')">
+          <div class="video-thumb portrait">
+            <img src="https://img.youtube.com/vi/2uaDrXzvi4g/mqdefault.jpg" alt="Short 2"/>
+            <div class="play-icon">
+              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
+            </div>
+            <span class="shorts-badge">Short</span>
+          </div>
+          <div class="video-info">
+            <h3>Short 2</h3>
+            <p>Update this title</p>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('Jlimu250kHE', 'portrait')">
+          <div class="video-thumb portrait">
+            <img src="https://img.youtube.com/vi/Jlimu250kHE/mqdefault.jpg" alt="Short 3"/>
+            <div class="play-icon">
+              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
+            </div>
+            <span class="shorts-badge">Short</span>
+          </div>
+          <div class="video-info">
+            <h3>Short 3</h3>
+            <p>Update this title</p>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('A4a8FPHYShU', 'portrait')">
+          <div class="video-thumb portrait">
+            <img src="https://img.youtube.com/vi/A4a8FPHYShU/mqdefault.jpg" alt="Short 4"/>
+            <div class="play-icon">
+              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
+            </div>
+            <span class="shorts-badge">Short</span>
+          </div>
+          <div class="video-info">
+            <h3>Short 4</h3>
+            <p>Update this title</p>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('7JubMEjIyW0', 'portrait')">
+          <div class="video-thumb portrait">
+            <img src="https://img.youtube.com/vi/7JubMEjIyW0/mqdefault.jpg" alt="Short 5"/>
+            <div class="play-icon">
+              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
+            </div>
+            <span class="shorts-badge">Short</span>
+          </div>
+          <div class="video-info">
+            <h3>Short 5</h3>
+            <p>Update this title</p>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('aA538R7d82Y', 'portrait')">
+          <div class="video-thumb portrait">
+            <img src="https://img.youtube.com/vi/aA538R7d82Y/mqdefault.jpg" alt="Short 6"/>
+            <div class="play-icon">
+              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
+            </div>
+            <span class="shorts-badge">Short</span>
+          </div>
+          <div class="video-info">
+            <h3>Short 6</h3>
+            <p>Update this title</p>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('HqT9t5_moc4', 'portrait')">
+          <div class="video-thumb portrait">
+            <img src="https://img.youtube.com/vi/HqT9t5_moc4/mqdefault.jpg" alt="Short 7"/>
+            <div class="play-icon">
+              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
+            </div>
+            <span class="shorts-badge">Short</span>
+          </div>
+          <div class="video-info">
+            <h3>Short 7</h3>
+            <p>Update this title</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Lightbox -->
   <div id="lightbox">
     <button id="lightbox-close" aria-label="Close">&#215;</button>
     <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <!-- Video Modal -->
+  <div id="video-modal">
+    <button id="video-modal-close" aria-label="Close">&#215;</button>
+    <div class="video-modal-inner" id="video-modal-inner">
+      <iframe id="video-iframe" src="" allowfullscreen allow="autoplay"></iframe>
+    </div>
   </div>
 
   <footer>
@@ -248,6 +607,15 @@
   </footer>
 
   <script>
+    // ── TAB SWITCHING ──
+    function switchTab(name, btn) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('section-' + name).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    // ── IMAGE LIGHTBOX ──
     const items = document.querySelectorAll('.item img');
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
@@ -262,13 +630,42 @@
     });
 
     lightbox.addEventListener('click', e => {
-      if (e.target === lightbox || e.target === lbClose) {
+      if (e.target === lightbox || e.target === lbClose)
         lightbox.classList.remove('active');
-      }
     });
 
+    // ── VIDEO MODAL ──
+    const videoModal = document.getElementById('video-modal');
+    const videoIframe = document.getElementById('video-iframe');
+    const videoClose = document.getElementById('video-modal-close');
+    const videoModalInner = document.getElementById('video-modal-inner');
+
+    function openVideo(videoId, orientation) {
+      // Shorts use /shorts/ path for proper playback
+      const src = orientation === 'portrait'
+        ? 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0'
+        : 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+
+      videoIframe.src = src;
+      videoModalInner.className = 'video-modal-inner ' + orientation;
+      videoModal.classList.add('active');
+    }
+
+    function closeVideo() {
+      videoModal.classList.remove('active');
+      videoIframe.src = '';
+    }
+
+    videoModal.addEventListener('click', e => {
+      if (e.target === videoModal) closeVideo();
+    });
+    videoClose.addEventListener('click', closeVideo);
+
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') lightbox.classList.remove('active');
+      if (e.key === 'Escape') {
+        lightbox.classList.remove('active');
+        closeVideo();
+      }
     });
   </script>
 
