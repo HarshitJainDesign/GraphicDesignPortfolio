@@ -64,14 +64,10 @@
       transition: border-color 0.25s, color 0.25s;
     }
 
-    .contact-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
+    .contact-btn:hover { border-color: var(--accent); color: var(--accent); }
     .contact-btn svg { flex-shrink: 0; }
 
-    /* ── HERO TAG ── */
+    /* ── HERO ── */
     .hero-tag {
       padding: 140px 40px 60px;
       max-width: 700px;
@@ -118,11 +114,7 @@
       white-space: nowrap;
     }
 
-    .tab-btn.active {
-      color: var(--fg);
-      border-bottom-color: var(--accent);
-    }
-
+    .tab-btn.active { color: var(--fg); border-bottom-color: var(--accent); }
     .tab-btn:hover { color: var(--fg); }
 
     /* ── SECTIONS ── */
@@ -155,15 +147,10 @@
       transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), filter 0.4s;
     }
 
-    .item:hover img {
-      transform: scale(1.03);
-      filter: grayscale(0%);
-    }
+    .item:hover img { transform: scale(1.03); filter: grayscale(0%); }
 
-    /* ── VIDEO SECTION LAYOUT ── */
-    .video-section-inner {
-      padding: 40px 40px 80px;
-    }
+    /* ── VIDEO SECTION ── */
+    .video-section-inner { padding: 40px 40px 80px; }
 
     .video-section-label {
       font-family: 'Bebas Neue', sans-serif;
@@ -193,7 +180,6 @@
     @media (max-width: 700px)  { .video-grid-shorts { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 420px)  { .video-grid-shorts { grid-template-columns: 1fr; } }
 
-    /* ── VIDEO CARD ── */
     .video-card {
       background: #161616;
       border: 1px solid var(--muted);
@@ -202,10 +188,7 @@
       overflow: hidden;
     }
 
-    .video-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
+    .video-card:hover { border-color: var(--accent); transform: translateY(-3px); }
 
     .video-thumb {
       width: 100%;
@@ -240,8 +223,7 @@
     .video-card:hover .play-icon { background: rgba(0,0,0,0.15); }
 
     .play-icon svg {
-      width: 48px;
-      height: 48px;
+      width: 48px; height: 48px;
       filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
       transition: transform 0.25s;
     }
@@ -261,9 +243,7 @@
       text-transform: uppercase;
     }
 
-    .video-info {
-      padding: 12px 14px;
-    }
+    .video-info { padding: 12px 14px; }
 
     .video-info h3 {
       font-size: 0.85rem;
@@ -273,80 +253,207 @@
       margin-bottom: 3px;
     }
 
-    .video-info p {
-      font-size: 0.72rem;
-      color: #666;
+    .video-info p { font-size: 0.72rem; color: #666; }
+
+    /* ══════════════════════════════
+       EXPERIENCE SECTION
+    ══════════════════════════════ */
+    .exp-section {
+      padding: 48px 40px 80px;
+      max-width: 1100px;
     }
 
-    /* ── CV SECTION ── */
-    .cv-section-inner {
-      padding: 40px 40px 80px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .cv-top {
+    /* ── About blurb ── */
+    .exp-about {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 24px;
+      gap: 40px;
+      margin-bottom: 64px;
       flex-wrap: wrap;
     }
 
-    .cv-intro h2 {
+    .exp-about-text h2 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      letter-spacing: 0.08em;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      letter-spacing: 0.06em;
       line-height: 1;
       color: var(--fg);
     }
 
-    .cv-intro h2 span { color: var(--accent); }
+    .exp-about-text h2 span { color: var(--accent); }
 
-    .cv-intro p {
-      margin-top: 12px;
-      font-size: 0.9rem;
-      color: #888;
-      max-width: 520px;
-      line-height: 1.7;
+    .exp-about-text p {
+      margin-top: 16px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #aaa;
+      max-width: 480px;
     }
 
     .cv-download-btn {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 12px 24px;
       border: 1px solid var(--accent);
       color: var(--accent);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       text-decoration: none;
       transition: background 0.2s, color 0.2s;
       white-space: nowrap;
       flex-shrink: 0;
+      margin-top: 8px;
     }
 
-    .cv-download-btn:hover {
-      background: var(--accent);
-      color: var(--bg);
+    .cv-download-btn:hover { background: var(--accent); color: var(--bg); }
+
+    /* ── Skills ── */
+    .exp-block { margin-bottom: 56px; }
+
+    .exp-block-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--muted);
     }
 
-    /* PDF Embed */
-    .cv-pdf-wrapper {
-      width: 100%;
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      padding: 7px 16px;
       border: 1px solid var(--muted);
-      background: #111;
-      overflow: hidden;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: #bbb;
+      transition: border-color 0.2s, color 0.2s;
     }
 
-    .cv-pdf-wrapper iframe {
-      width: 100%;
-      height: 80vh;
-      min-height: 600px;
-      border: none;
-      display: block;
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Experience timeline ── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--muted);
+    }
+
+    .timeline-item:first-child { padding-top: 0; }
+    .timeline-item:last-child { border-bottom: none; }
+
+    @media (max-width: 700px) {
+      .timeline-item { grid-template-columns: 1fr; gap: 12px; }
+    }
+
+    .timeline-meta { padding-top: 2px; }
+
+    .timeline-date {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .timeline-company {
+      font-size: 0.82rem;
+      color: #666;
+      letter-spacing: 0.04em;
+    }
+
+    .timeline-role {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+      color: var(--fg);
+      margin-bottom: 14px;
+    }
+
+    .timeline-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .timeline-points li {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .timeline-points li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+      top: 2px;
+    }
+
+    /* ── Education & Extra ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 700px) { .edu-grid { grid-template-columns: 1fr; } }
+
+    .edu-card {
+      padding: 24px;
+      border: 1px solid var(--muted);
+      transition: border-color 0.25s;
+    }
+
+    .edu-card:hover { border-color: var(--accent); }
+
+    .edu-card-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .edu-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      color: var(--fg);
+      margin-bottom: 6px;
+    }
+
+    .edu-card p {
+      font-size: 0.8rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .award-highlight {
+      margin-top: 12px;
+      padding: 12px 16px;
+      background: rgba(200, 185, 154, 0.07);
+      border-left: 2px solid var(--accent);
+      font-size: 0.82rem;
+      color: #aaa;
+      line-height: 1.6;
     }
 
     /* ── VIDEO MODAL ── */
@@ -364,30 +471,11 @@
 
     .video-modal-inner { position: relative; }
 
-    .video-modal-inner.landscape {
-      width: 90vw;
-      max-width: 1000px;
-    }
-
-    .video-modal-inner.landscape iframe {
-      width: 100%;
-      aspect-ratio: 16/9;
-    }
-
-    .video-modal-inner.portrait {
-      height: 88vh;
-      max-height: 700px;
-    }
-
-    .video-modal-inner.portrait iframe {
-      height: 100%;
-      aspect-ratio: 9/16;
-    }
-
-    .video-modal-inner iframe {
-      border: none;
-      display: block;
-    }
+    .video-modal-inner.landscape { width: 90vw; max-width: 1000px; }
+    .video-modal-inner.landscape iframe { width: 100%; aspect-ratio: 16/9; }
+    .video-modal-inner.portrait { height: 88vh; max-height: 700px; }
+    .video-modal-inner.portrait iframe { height: 100%; aspect-ratio: 9/16; }
+    .video-modal-inner iframe { border: none; display: block; }
 
     #video-modal-close {
       position: fixed;
@@ -465,9 +553,7 @@
   <header>
     <a href="#" class="logo">Harshit <span>Jain</span></a>
     <a href="mailto:harshitjain4121@gmail.com" class="contact-btn">
-      <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 1h13v10H1V1zm0 0l6.5 5.5L14 1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <svg width="15" height="12" viewBox="0 0 15 12" fill="none"><path d="M1 1h13v10H1V1zm0 0l6.5 5.5L14 1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Get in Touch
     </a>
   </header>
@@ -481,10 +567,10 @@
   <div class="section-tabs">
     <button class="tab-btn active" onclick="switchTab('design', this)">Graphic Design</button>
     <button class="tab-btn" onclick="switchTab('video', this)">Video Editing</button>
-    <button class="tab-btn" onclick="switchTab('cv', this)">Experience & CV</button>
+    <button class="tab-btn" onclick="switchTab('cv', this)">Experience</button>
   </div>
 
-  <!-- DESIGN SECTION -->
+  <!-- ── DESIGN SECTION ── -->
   <div class="section active" id="section-design">
     <div class="grid">
       <div class="item"><img src="images/Musician_PsychedelicPoster.jpg" alt="Psychedelic Musician Poster" loading="lazy"/></div>
@@ -509,10 +595,9 @@
     </div>
   </div>
 
-  <!-- VIDEO SECTION -->
+  <!-- ── VIDEO SECTION ── -->
   <div class="section" id="section-video">
     <div class="video-section-inner">
-
       <p class="video-section-label">Videos</p>
       <div class="video-grid-landscape">
 
@@ -520,28 +605,18 @@
           <div class="video-thumb landscape">
             <img src="https://img.youtube.com/vi/MpQf3WP3VCE/maxresdefault.jpg" alt="Accountants using Yardi"
               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/MpQf3WP3VCE/hqdefault.jpg'"/>
-            <div class="play-icon">
-              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
-            </div>
+            <div class="play-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg></div>
           </div>
-          <div class="video-info">
-            <h3>Accountants using Yardi</h3>
-            <p>Relay Human Cloud</p>
-          </div>
+          <div class="video-info"><h3>Accountants using Yardi</h3><p>Relay Human Cloud</p></div>
         </div>
 
         <div class="video-card" onclick="openVideo('4xqyGSE8kAU', 'landscape')">
           <div class="video-thumb landscape">
             <img src="https://img.youtube.com/vi/4xqyGSE8kAU/maxresdefault.jpg" alt="Accountants Using Quickbooks"
               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/4xqyGSE8kAU/hqdefault.jpg'"/>
-            <div class="play-icon">
-              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
-            </div>
+            <div class="play-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg></div>
           </div>
-          <div class="video-info">
-            <h3>Accountants Using Quickbooks</h3>
-            <p>Relay Human Cloud</p>
-          </div>
+          <div class="video-info"><h3>Accountants Using Quickbooks</h3><p>Relay Human Cloud</p></div>
         </div>
 
       </div>
@@ -553,129 +628,178 @@
           <div class="video-thumb portrait">
             <img src="https://img.youtube.com/vi/1q5cgi0Clqs/maxresdefault.jpg" alt="Upskilling at Relay Part 1"
               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/1q5cgi0Clqs/hqdefault.jpg'"/>
-            <div class="play-icon">
-              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
-            </div>
+            <div class="play-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg></div>
             <span class="shorts-badge">Short</span>
           </div>
-          <div class="video-info">
-            <h3>Upskilling at Relay Part 1</h3>
-            <p>Relay Human Cloud</p>
-          </div>
+          <div class="video-info"><h3>Upskilling at Relay Part 1</h3><p>Relay Human Cloud</p></div>
         </div>
 
         <div class="video-card" onclick="openVideo('2uaDrXzvi4g', 'portrait')">
           <div class="video-thumb portrait">
             <img src="https://img.youtube.com/vi/2uaDrXzvi4g/maxresdefault.jpg" alt="Upskilling at Relay Part 2"
               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/2uaDrXzvi4g/hqdefault.jpg'"/>
-            <div class="play-icon">
-              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
-            </div>
+            <div class="play-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg></div>
             <span class="shorts-badge">Short</span>
           </div>
-          <div class="video-info">
-            <h3>Upskilling at Relay Part 2</h3>
-            <p>Relay Human Cloud</p>
-          </div>
+          <div class="video-info"><h3>Upskilling at Relay Part 2</h3><p>Relay Human Cloud</p></div>
         </div>
 
         <div class="video-card" onclick="openVideo('Jlimu250kHE', 'portrait')">
           <div class="video-thumb portrait">
             <img src="https://img.youtube.com/vi/Jlimu250kHE/maxresdefault.jpg" alt="Upskilling at Relay Part 3"
               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Jlimu250kHE/hqdefault.jpg'"/>
-            <div class="play-icon">
-              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
-            </div>
+            <div class="play-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg></div>
             <span class="shorts-badge">Short</span>
           </div>
-          <div class="video-info">
-            <h3>Upskilling at Relay Part 3</h3>
-            <p>Relay Human Cloud</p>
-          </div>
+          <div class="video-info"><h3>Upskilling at Relay Part 3</h3><p>Relay Human Cloud</p></div>
         </div>
 
         <div class="video-card" onclick="openVideo('A4a8FPHYShU', 'portrait')">
           <div class="video-thumb portrait">
             <img src="https://img.youtube.com/vi/A4a8FPHYShU/maxresdefault.jpg" alt="Upskilling at Relay Part 4"
               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/A4a8FPHYShU/hqdefault.jpg'"/>
-            <div class="play-icon">
-              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
-            </div>
+            <div class="play-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg></div>
             <span class="shorts-badge">Short</span>
           </div>
-          <div class="video-info">
-            <h3>Upskilling at Relay Part 4</h3>
-            <p>Relay Human Cloud</p>
-          </div>
+          <div class="video-info"><h3>Upskilling at Relay Part 4</h3><p>Relay Human Cloud</p></div>
         </div>
 
         <div class="video-card" onclick="openVideo('7JubMEjIyW0', 'portrait')">
           <div class="video-thumb portrait">
             <img src="https://img.youtube.com/vi/7JubMEjIyW0/maxresdefault.jpg" alt="Accountants at Relay"
               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/7JubMEjIyW0/hqdefault.jpg'"/>
-            <div class="play-icon">
-              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
-            </div>
+            <div class="play-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg></div>
             <span class="shorts-badge">Short</span>
           </div>
-          <div class="video-info">
-            <h3>Accountants at Relay</h3>
-            <p>Relay Human Cloud</p>
-          </div>
+          <div class="video-info"><h3>Accountants at Relay</h3><p>Relay Human Cloud</p></div>
         </div>
 
         <div class="video-card" onclick="openVideo('aA538R7d82Y', 'portrait')">
           <div class="video-thumb portrait">
             <img src="https://img.youtube.com/vi/aA538R7d82Y/maxresdefault.jpg" alt="BODMATHS 1"
               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/aA538R7d82Y/hqdefault.jpg'"/>
-            <div class="play-icon">
-              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
-            </div>
+            <div class="play-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg></div>
             <span class="shorts-badge">Short</span>
           </div>
-          <div class="video-info">
-            <h3>BODMATHS 1</h3>
-            <p>Relay Human Cloud</p>
-          </div>
+          <div class="video-info"><h3>BODMATHS 1</h3><p>Relay Human Cloud</p></div>
         </div>
 
         <div class="video-card" onclick="openVideo('HqT9t5_moc4', 'portrait')">
           <div class="video-thumb portrait">
             <img src="https://img.youtube.com/vi/HqT9t5_moc4/maxresdefault.jpg" alt="BODMATHS 2"
               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/HqT9t5_moc4/hqdefault.jpg'"/>
-            <div class="play-icon">
-              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg>
-            </div>
+            <div class="play-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/><polygon points="26,20 48,32 26,44" fill="white"/></svg></div>
             <span class="shorts-badge">Short</span>
           </div>
-          <div class="video-info">
-            <h3>BODMATHS 2</h3>
-            <p>Relay Human Cloud</p>
-          </div>
+          <div class="video-info"><h3>BODMATHS 2</h3><p>Relay Human Cloud</p></div>
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- CV SECTION -->
+  <!-- ── EXPERIENCE SECTION ── -->
   <div class="section" id="section-cv">
-    <div class="cv-section-inner">
-      <div class="cv-top">
-        <div class="cv-intro">
-          <h2>Experience<br><span>&amp; Resume</span></h2>
-          <p>Video Editor and Graphic Designer with experience in corporate content, social media, and brand storytelling. Currently at Relay Human Cloud, Ahmedabad.</p>
+    <div class="exp-section">
+
+      <!-- About + Download -->
+      <div class="exp-about">
+        <div class="exp-about-text">
+          <h2>Video Editor &amp;<br><span>Graphic Designer</span></h2>
+          <p>I care about telling clear stories that actually connect. I handle the full process from recording to final cut and make sure content works for wherever it's going to live. I don't follow templates blindly — I'd rather make something that feels right for the project.</p>
         </div>
         <a href="Harshit Jain Updated CV.pdf" download class="cv-download-btn">
-          <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 1v9m0 0l-3-3m3 3l3-3M1 12v2a1 1 0 001 1h10a1 1 0 001-1v-2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M7 1v9m0 0l-3-3m3 3l3-3M1 12v2a1 1 0 001 1h10a1 1 0 001-1v-2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Download CV
         </a>
       </div>
-      <div class="cv-pdf-wrapper">
-        <iframe src="Harshit Jain Updated CV.pdf" title="Harshit Jain CV"></iframe>
+
+      <!-- Skills -->
+      <div class="exp-block">
+        <p class="exp-block-title">Technical Skills</p>
+        <div class="skills-grid">
+          <span class="skill-tag">Video Editing — Short &amp; Long Form</span>
+          <span class="skill-tag">Corporate &amp; Talking-Head Videos</span>
+          <span class="skill-tag">Social Media Video (Instagram · LinkedIn · YouTube)</span>
+          <span class="skill-tag">Motion Graphics &amp; Text Animations</span>
+          <span class="skill-tag">Audio Syncing &amp; Sound Design</span>
+          <span class="skill-tag">Thumbnail Design</span>
+          <span class="skill-tag">Adobe Premiere Pro</span>
+          <span class="skill-tag">Adobe After Effects</span>
+          <span class="skill-tag">Adobe Photoshop</span>
+          <span class="skill-tag">Adobe Illustrator</span>
+          <span class="skill-tag">Canva</span>
+        </div>
       </div>
+
+      <!-- Experience -->
+      <div class="exp-block">
+        <p class="exp-block-title">Experience</p>
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-meta">
+              <p class="timeline-date">July 2025 — Present</p>
+              <p class="timeline-company">Relay Human Cloud<br>Ahmedabad, India</p>
+            </div>
+            <div>
+              <p class="timeline-role">Video Editor &amp; Graphic Designer</p>
+              <ul class="timeline-points">
+                <li>Produced and edited end-to-end video content — employee interviews, testimonials, internal communications, brand videos, and marketing assets for India and US markets.</li>
+                <li>Managed full post-production: editing, colour grading, audio mixing, sound design, subtitle creation, and multi-platform export for YouTube, Instagram, and LinkedIn.</li>
+                <li>Directed and edited corporate video interviews, maintaining professional standards in framing, lighting, audio quality, and brand consistency.</li>
+                <li>Developed short-form and long-form video content for social media, internal portals, and employer branding campaigns.</li>
+                <li>Designed visual assets including Instagram Reels, LinkedIn carousels, motion graphics, and static creatives.</li>
+                <li>Explored AI-powered tools to enhance production efficiency while maintaining brand identity.</li>
+                <li>Awarded the <em style="color:var(--accent)">"Going Above and Beyond Award"</em> within the first quarter for work ethic and delivery under tight deadlines.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-meta">
+              <p class="timeline-date">April 2025 — June 2025</p>
+              <p class="timeline-company">Zeishah Amlani<br>YouTube Channel</p>
+            </div>
+            <div>
+              <p class="timeline-role">Video Editor</p>
+              <ul class="timeline-points">
+                <li>Edited and delivered 35+ long-form YouTube videos spanning movie listicles, film reviews, cinema news, pop-culture commentary, and entertainment industry analysis.</li>
+                <li>Managed complete post-production pipeline from rough cuts to final delivery — editing, pacing, transitions, motion graphics, audio sync, and YouTube-ready exports.</li>
+                <li>Designed custom thumbnails for all videos, optimising composition, typography, and colour to improve click-through rate.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Education & Extra -->
+      <div class="exp-block">
+        <p class="exp-block-title">Education &amp; More</p>
+        <div class="edu-grid">
+
+          <div class="edu-card">
+            <p class="edu-card-label">Education</p>
+            <h3>Masters in Multimedia</h3>
+            <p>Specialization in Animation (Integrated)<br>St Xavier's College, Kolkata · 2019 – 2024</p>
+            <p style="margin-top:8px; font-size:0.78rem; color:#555;">Graphic design · Filmmaking · Animation · Digital Media Production</p>
+          </div>
+
+          <div class="edu-card">
+            <p class="edu-card-label">Certifications &amp; Interests</p>
+            <h3>Additional Info</h3>
+            <p>Video Editing Certification — Internshala Trainings</p>
+            <p style="margin-top:8px; font-size:0.78rem; color:#555;">Languages: English · Hindi · Bengali</p>
+            <p style="margin-top:4px; font-size:0.78rem; color:#555;">Interests: Stand-up Comedy · Observational Writing · Film &amp; Music · Cricket · Chess</p>
+            <div class="award-highlight">
+              🏆 "Going Above and Beyond Award" — Relay Human Cloud, within first quarter of joining.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -740,16 +864,11 @@
       videoIframe.src = '';
     }
 
-    videoModal.addEventListener('click', e => {
-      if (e.target === videoModal) closeVideo();
-    });
+    videoModal.addEventListener('click', e => { if (e.target === videoModal) closeVideo(); });
     videoClose.addEventListener('click', closeVideo);
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        lightbox.classList.remove('active');
-        closeVideo();
-      }
+      if (e.key === 'Escape') { lightbox.classList.remove('active'); closeVideo(); }
     });
   </script>
 
